@@ -8,6 +8,7 @@ import PageTransition from '../components/PageTransition';
 import SearchBar from '../components/SearchBar';
 import { siteConfig } from '../siteConfig';
 import CloudPlayer from '../components/CloudPlayer';
+import WeatherWidget from '../components/WeatherWidget';
 import ThemeToggleBlock from '../components/ThemeToggleBlock';
 import ProfileCard from '../components/ProfileCard';
 import SiteDashboard from '../components/SiteDashboard';
@@ -106,7 +107,8 @@ export default function Home() {
                     <ProfileCard postCount={allPosts.length} chatterCount={chatterCount} photoCount={realPhotoCount}/>
                 </div>
                 {/* 手机上占满1列，电脑上占5列 */}
-                <div className="col-span-1 lg:col-span-5 flex flex-col">
+                <div className="col-span-1 lg:col-span-5 flex flex-col gap-6">
+                    <WeatherWidget/>
                     <CloudPlayer/>
                 </div>
               </div>
