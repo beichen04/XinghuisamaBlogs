@@ -11,10 +11,10 @@ export type Project = {
 
 export const projectsData: Project[] = [
   {
-    id: "proj_ksuroot",
-    name: "KSuRoot 管理器",
-    githubUrl: "https://github.com/hmascs/KSuRoot",
-    description: "基于 CVE-2026-43499(GhostLock) 的一键 KernelSU 提权工具。多内核支持：6.1 / 6.6 / 6.12 三族各有专属基线，另有 50 档上游内核适配；多机型动态库内置：122 条厂商载荷离线可用，按机型+内核+commit 三级匹配；新增「载荷构建」用本机 boot.img 解析偏移打出适配本机的载荷；免 ADB。",
+    id: "proj_kernelsu",
+    name: "KernelSU",
+    githubUrl: "https://github.com/tiann/KernelSU",
+    description: "A Kernel based root solution for Android. KernelSU 是基于内核的 Android Root 解决方案，为 GKI 设备提供强大的 root 权限管理能力。",
     icon: "🛡️",
     tags: [
       "KernelSU",
