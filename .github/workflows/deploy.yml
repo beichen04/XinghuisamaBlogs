@@ -41,7 +41,9 @@ jobs:
         run: npm run build
         env:
           NEXT_TELEMETRY_DISABLED: 1
-          NEXT_PUBLIC_BASE_PATH: /XinghuisamaBlogs
+
+      - name: Create CNAME
+        run: echo "beichen.devs.li" > out/CNAME
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
