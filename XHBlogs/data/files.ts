@@ -13,11 +13,11 @@ export interface SharedFile {
 export const filesData: SharedFile[] = [
   {
     id: "file_001",
-    name: "示例文件",
-    description: "这是一个示例文件，改成你自己的文件和链接即可。",
-    url: "https://example.com/your-file",
+    name: "刷机驱动",
+    description: "刷机驱动工具包",
+    url: "https://wwawg.lanzoue.com/itihO48ga04d",
     size: "—",
     source: "蓝奏云",
-    icon: "📄",
+    icon: "🔧",
   },
 ];
