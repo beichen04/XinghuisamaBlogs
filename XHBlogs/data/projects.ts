@@ -23,6 +23,18 @@ export const projectsData: Project[] = [
     ]
   },
   {
+    id: "proj_violet_toolbox",
+    name: "紫罗兰工具箱",
+    githubUrl: "https://github.com/Smart-Paocai/VioletToolBox",
+    description: "一款面向安卓开发的多功能玩机工具箱（VioletToolBox）。",
+    icon: "🧰",
+    tags: [
+      "Android",
+      "玩机",
+      "工具箱"
+    ]
+  },
+  {
     id: "proj_1775049332705",
     name: "Computational Chemistry Tool",
     githubUrl: "https://github.com/heiehiehi/Computational_Chemistry_Tool",
