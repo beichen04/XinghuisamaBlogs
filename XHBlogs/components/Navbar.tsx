@@ -78,6 +78,7 @@ export default function Navbar() {
     { name: '说说', href: '/moments' },
     { name: '杂谈', href: '/chatter' },
     { name: '友链', href: '/friends' },
+    { name: '文件', href: '/files' },
     { name: '关于', href: '/about' },
   ];
 
