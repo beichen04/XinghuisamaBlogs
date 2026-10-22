@@ -4,8 +4,8 @@ const nextConfig: NextConfig = {
   // GitHub Pages 静态导出模式
   output: 'export',
   trailingSlash: true,
-  // 部署在项目子路径下时设置 basePath
-  basePath: process.env.NEXT_PUBLIC_BASE_PATH || '',
+  // 自定义域名直接指向根路径，不需要 basePath
+  basePath: '',
   images: {
     unoptimized: true,
   },
