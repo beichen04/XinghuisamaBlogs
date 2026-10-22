@@ -84,20 +84,30 @@ export function MusicProvider({ children }: { children: ReactNode }) {
     let isMounted = true;
     const fetchMusicData = async () => {
       try {
-        const res = await fetch(`/api/music?ids=${siteConfig.cloudMusicIds.join(',')}`);
-        const rawResults = await res.json();
+        // 纯前端方案：直接调用公共 Meting API，不依赖 /api/music 服务端路由
+        const ids = siteConfig.cloudMusicIds;
+        const fetchPromises = ids.map(id =>
+          fetch(`https://api.injahow.cn/meting/?server=netease&type=song&id=${id}`)
+            .then(res => { if (!res.ok) throw new Error("API 异常"); return res.json(); })
+            .catch(() => null)
+        );
+        const results = await Promise.all(fetchPromises);
 
-        const mergedPlaylist = rawResults
-          .filter((song: any) => song && song.url && !song.error)
-          .map((song: any) => ({
-            id: song.id || Math.random().toString(),
-            title: song.name || '未知歌曲',
-            artist: song.artist || song.author || '未知歌手',
-            cover: song.cover || song.pic || 'https://bu.dusays.com/2026/03/24/69c24230a5ff8.jpg',
-            src: song.url,
-            lrcUrl: null,
-            lyrics: song.lrc ? parseLrc(song.lrc) : []
-          }));
+        const mergedPlaylist = results
+          .filter((res: any) => res && res.length > 0)
+          .map((res: any) => {
+            const song = res[0];
+            return {
+              id: song.id || Math.random().toString(),
+              title: song.name || '未知歌曲',
+              artist: song.artist || '未知歌手',
+              cover: song.pic || 'https://bu.dusays.com/2026/03/24/69c24230a5ff8.jpg',
+              src: song.url,
+              lrcUrl: song.lrc || null,
+              lyrics: []
+            };
+          })
+          .filter((song: any) => song.src);
 
         if (isMounted) {
           if (mergedPlaylist.length > 0) setPlaylist(mergedPlaylist);
