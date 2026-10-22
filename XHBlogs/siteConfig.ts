@@ -39,9 +39,9 @@ export const siteConfig = {
     github: "beichen04",
     gitee: "",
     google: "",
-    email: "",
-    qq: "",
-    wechat: "",
+    email: "cbj2004@qq.com",
+    qq: "2184661964",
+    wechat: "cctv1760552",
   },
   counts: {
     photos: 128, // 照片墙数量可以手动写死或动态计算
